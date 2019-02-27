@@ -28,6 +28,7 @@ export default {
     this.start()
   },
   methods: {
+    /* Timer */
     start() {
       this.isRunning = true
       if (!this.timer) {

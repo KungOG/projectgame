@@ -39,6 +39,7 @@ export default {
       }
   },
   computed: {
+    /* Checks what you have picked and makes a green dotted around the option */
       buttonSelector: function() {
       let result = [];
       for (var i = 0; i< 7; i++){
@@ -61,10 +62,12 @@ export default {
       return result;
     }
   },
+  /* Gets the question from firebase */
   firebase: {
     questions: db.ref('questions')
   },
   methods: {
+    /* No fucking clue, only that you set everything to 0 */ 
     afunction: function(cat) {
       var arr = [];
       for(var i = 0; i < this.questions.length; i++){
@@ -79,6 +82,7 @@ export default {
       this.$store.state.value = 0;
       this.$store.state.bot = 0;
     },
+    /* Chooses the right bot from which you picked */
     selectedBot: function(oppo) {
 
       if (oppo === 'easy') {
@@ -91,6 +95,7 @@ export default {
     console.log(this.$store.state.choosenBot);
 
     },
+    /* Checks which category and what bot you picked */
     checkSelect() {
       if (this.categoryButton && this.activeButton > 0) {
       this.optionsSelected = true;

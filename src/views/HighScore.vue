@@ -28,6 +28,7 @@ export default {
     }
 },
   methods: {
+    /* Logout function */ 
     logout: function() {
       firebase
         .auth()

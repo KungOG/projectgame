@@ -18,6 +18,7 @@ export default {
       user: null
     }
   },
+  /* Logout function */
   methods: {
         logout() {
       firebase.auth().signOut()
@@ -25,7 +26,9 @@ export default {
           this.$router.push({path: '/'});
         });
     }
-  },  created: function () {
+  },  
+  /* Checks if the user is logged in or not */
+  created: function () {
       firebase.auth().onAuthStateChanged(user => {
         if (user) {
           this.user = user;

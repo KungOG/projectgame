@@ -41,6 +41,7 @@ export default {
     }
   },
   methods: {
+    /* Create you a new account */
     signUp: function() {
       firebase
         .auth()

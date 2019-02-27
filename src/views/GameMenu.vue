@@ -14,6 +14,7 @@ import firebase from "firebase";
 export default {
   name: "GameMenu",
   methods: {
+    /* Logout function */
     logout: function() {
       firebase
         .auth()

@@ -17,6 +17,7 @@ export default {
         }
     },
     firebase: {
+        /* Checks if you are logged in and if so your points */
         allUsers: db.ref('allUsers').orderByChild("newPoint")
     },
 }

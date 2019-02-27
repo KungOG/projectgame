@@ -28,6 +28,7 @@ export default {
     };
   },
   methods: {
+    /* Checks if you have the correct email and password */
     login: function() {
       firebase
         .auth()

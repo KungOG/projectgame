@@ -74,7 +74,7 @@ const router = new Router({
     }
   ]
 })
-
+/* Checks if you are logged in or not */
 router.beforeEach((to, from, next) => {
     var requiresAuth = to.matched.some(record => record.meta.requiresAuth);
     var currentUser = firebase.auth().currentUser;

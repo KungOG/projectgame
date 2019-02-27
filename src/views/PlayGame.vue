@@ -44,6 +44,7 @@ export default {
     }
   },
   firebase: {
+    /* Gets the questions and also sets your new point over your old ones */
   questions: db.ref('questions'),
   allUsers: db.ref('allUsers').orderByChild("newPoint")
   },
@@ -93,6 +94,8 @@ export default {
     {
       this.$refs.focused.focus();
     },
+    /* Set your point and adds 10 */
+    /* Poäng baserat på svårighetsgrad, lätt = 1, medel = 1,5 och svår = 2 */
     storeData() {
       this.$firebaseRefs.allUsers.child(this.uid).update({
       newPoint: parseInt(this.oldScore) + parseInt(10)});
@@ -109,6 +112,7 @@ export default {
     newValue(event) {
       this.$store.dispatch('newValue', event.target.value)
     },
+    /* Bot and more bot stuff under  */
     decideMinMax: function () {
       var Min = 0;
       if (this.$store.state.choosenBot == "Glenn's") {
@@ -182,17 +186,20 @@ export default {
         this.$router.push({ path: 'winner' });
       }
     },
+    /* Checks that user only uses numbers and not letters */
       OnlyNumbers(e) {
       var keyCode = e.which;
       var ret = ((keyCode >= 48 && keyCode <= 57) || (keyCode >= 8 && keyCode <= 13) || this.numberKeys.indexOf(keyCode) != -1);
       document.getElementById("errormess").style.display = ret ? "none" : "inline";
       return ret;
     },
+    /* Set a timeout on input */
      disableInput() {
         setTimeout(() => {
         document.getElementById("guess").disabled = true;
         }, 0);
      },
+     /* Stops the timer and resets it after bot has guessed */
      stopDisable() {
        setTimeout(() => {
          document.getElementById("guess").disabled = false;
